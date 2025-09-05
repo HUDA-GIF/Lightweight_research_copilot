@@ -1,53 +1,80 @@
 
 # 📚 Lightweight Research Copilot
+📚 Lightweight Research Copilot (Optimized)
 
-A simple **Streamlit app** for summarizing pasted text and creating quizzes.  
-Users can paste content, get a summary, and take an instant feedback quiz.
+An interactive Streamlit web app that helps researchers, students, and knowledge workers summarize text and generate quizzes.
+It supports both fast extractive summarization (using NLTK + TextRank) and advanced abstractive summarization (using transformer models via Hugging Face).
 
----
+✨ Features
 
-## 🚀 Features
-- Paste your own text
-- Get a simple summary
-- Answer a quiz
-- Instant answer checking
-- Spinner animation when processing
-- Uses `session_state` to avoid page resets
+Summarization Methods
 
----
+⚡ Fast (Extractive): Uses NLTK + NetworkX TextRank for quick results.
 
-## 🛠️ Technologies Used
-- **Python** (logic & backend)
-- **Streamlit** (web app framework)
-- **Session State** (state management)
-- Basic Python libraries (`time`)
+🤖 Advanced (Transformer): Uses facebook/bart-large-cnn for summarization and deepset/minilm-uncased-squad2 for Q&A.
 
----
+Quiz Generation
 
-## 📦 Installation
+Automatically generates comprehension questions from the summarized text.
 
-```bash
-git clone https://github.com/YOUR_USERNAME/lightweight-research-copilot.git
+Supports both generic question sets and QA-model-generated questions.
+
+Performance Monitoring
+
+Displays estimated processing time, memory usage, and model status.
+
+Fallback Handling
+
+Works even if transformers is not installed or system memory is limited.
+
+Automatically downloads required NLTK resources (punkt, stopwords).
+
+🚀 Getting Started
+1. Clone the Repository
+git clone https://github.com/your-username/lightweight-research-copilot.git
 cd lightweight-research-copilot
+
+2. Install Dependencies
+
+Create a virtual environment (recommended) and install dependencies:
+
 pip install -r requirements.txt
 
-▶️ Run the App
+
+requirements.txt
+
+streamlit
+nltk
+numpy
+networkx
+psutil
+transformers
+
+3. Run the App
 streamlit run app.py
 
-📌 Notes
+🛠 Usage
 
-This is a lightweight project — perfect for learning Streamlit basics and deploying simple apps.
+Paste your text into the input box.
 
+Choose a summarization method in the sidebar:
 
----
+Fast (Extractive)
 
-### 🔹 Technologies Your Project Uses:
-1. **Python** – Core programming language  
-2. **Streamlit** – Web app framework for data apps  
-3. **Session State** – To preserve quiz state between reruns  
-4. **time module** – To simulate processing delay  
+Advanced (Transformer) (if available)
 
----
+Adjust settings:
 
-This is now **clean, minimal, and portfolio-ready**.  
-Would you like me to also add **a screenshot section in README** to make your GitHub re
+Number of sentences / summary length.
+
+Enable or disable quiz generation.
+
+Click Analyze Text.
+
+View:
+
+✅ Summary
+
+📌 Quiz questions
+
+⚡ Performance metrics
